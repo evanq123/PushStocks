@@ -14,3 +14,7 @@
 * Create a .cfg to specify a threshold (min. price) in a /data/ dir.
 * Send messages for fatal errors and close prices.
 * Pause or resume the script at market close/open times.
+* Create an installer.
+
+# Installation:
+(Work in Progress).
