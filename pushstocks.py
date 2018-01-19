@@ -14,8 +14,7 @@ except ImportError:
 
 def get_quote(symbol):
     url = 'http://finance.yahoo.com/q?s={}'.format(symbol)
-    r = requests.get(url)
-    soup = BeautifulSoup(r.text, "html.parser")
+    soup = BeautifulSoup(requests.get(url).text, "html.parser")
     print("Checking quotes for {}").format(symbol)
     data = soup.find('span', attrs={'id' : re.compile(r'yfs_.*?_{}'.format(symbol.lower()))})
 
