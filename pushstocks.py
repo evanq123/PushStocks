@@ -1,11 +1,10 @@
-import requests
-import re
 import sys
 sys.path.insert(0, "lib")
+import requests
 
 try:
-    from pushbullet import PushBullet
     from bs4 import BeautifulSoup
+    from pushbullet import PushBullet
 except ImportError:
     print("Requirements were not installed. Please consult guide at\n"
           "https://github.com/evanq123/PushStocks \n")
@@ -13,12 +12,11 @@ except ImportError:
 
 
 def get_quote(symbol):
-    url = 'http://finance.yahoo.com/q?s={}'.format(symbol)
-    soup = BeautifulSoup(requests.get(url).text, "html.parser")
-    print("Checking quotes for {}").format(symbol)
-    data = soup.find('span', attrs={'id' : re.compile(r'yfs_.*?_{}'.format(symbol.lower()))})
-
-    return data.text
+    base_url = 'http://finance.google.com/finance?q='
+    html = requests.get(base_url + symbol).text
+    soup = BeautifulSoup(html, "html.parser")
+    quote = soup.find('span', attrs={'class': 'pr'}).text
+    return quote
 
 
 def push_message(msg):
