@@ -3,7 +3,7 @@ sys.path.insert(0, "lib")
 import requests
 import re
 import time
-from datetime import datetime
+import datetime
 
 try:
     from bs4 import BeautifulSoup
@@ -15,9 +15,9 @@ except ImportError:
 
 
 api_key     = input("Enter your PushBullet api key: ")
-symbol      = input("Enter the symbol: ")
-threshold   = input("Enter the amount in USD to start notifying: ")
-intervals   = int(input("Enter the time intervals (s) between checks: "))
+symbol      = input("Enter the symbol: ").upper()
+threshold   = float(input("Enter the amount in USD to start notifying: "))
+intervals   = int(input("Enter the time (in seconds) between checks: "))
 
 
 def get_quote(symbol):
@@ -33,7 +33,8 @@ def push_message(msg, symbol):
     pb.push_note("PushStocks: The quote for {} has changed!".format(symbol), msg)
 
 
-def send_message():
+message_sent = False # Hackish workaround for now.
+def price_past_threshold():
     non_decimal = re.compile(r'[^\d.]+')
     quote = non_decimal.sub('', get_quote(symbol))
     if float(quote) >= float(threshold):
@@ -41,9 +42,18 @@ def send_message():
 
 
 while True:
-    if send_message():
-        msg = ("Price for {} went up to {} (threshold = {})\n"
-               "".format(symbol, get_quote(symbol), threshold))
+    date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    if price_past_threshold() and message_sent is False:
+        msg = ("As of, {} EST, the price for {} is >= {} USD (at {} USD)"
+               "".format(date, symbol, threshold, get_quote(symbol).strip('\n')))
         print("Sending message to PushBullet...\n")
         push_message(msg, symbol)
+        message_sent = True
+
+    if not price_past_threshold() and message_sent is True:
+        msg = ("As of, {} EST, the price for {} is < {} USD (at {} USD)"
+               "".format(date, symbol, threshold, get_quote(symbol)))
+        push_message(msg, symbol)
+        message_sent = False
+
     time.sleep(intervals)
