@@ -1,4 +1,4 @@
-# PushStocks & PushCrypto v1.0 release
+# PushStocks v2.0 release
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
@@ -14,18 +14,13 @@ Now with cryptocurrency as well!.
 * Send messages for fatal errors and close prices.
 * Save api key
 * Pause or resume the script at market close/open times.
-* Create an installer.
-* Update readme for pushcrypto.py
-* Create a requirements.txt
 * Use different url source for get_rate (i.e., [Binance](https://www.binance.com/tradeDetail.html?symbol=XLM_BTC) or [gdax](https://www.gdax.com/trade/BTC-USD))
-* Combine the two python scripts.
 * Add more exception catching and re-organize duplicate codes.
 
 # Installation:
 1) Install Python3 (Check the box for **add to os environmental variable** for Windows)
-2) Type `pip install beautifulsoup4` in the command window.
-3) Type `pip install pushbullet.py` in the command window.
-4) Download/clone this repo to a directory.
-5) Change directories using `cd` and type `python3 pushstocks.py` into the command window.
+2) Download/clone this repo to a directory.
+3) Navigate to that directory using `cd` and type `pip install -r requirements.txt` in the terminal.
+4) Double click on pushstocks.py (for Windows) or type `python3 pushstocks.py` into the terminal.
 
 *Optional* Clone this repo using git to keep it updated.
