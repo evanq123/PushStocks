@@ -23,7 +23,7 @@ if use_crypto is True:
 else:
     symbol      = input("Enter the symbol: ").upper()
     threshold   = float(input("Enter the amount in USD to start notifying: "))
-api_key     = "o.NE5qvDmItyKrOhfewcczJ6U9BZL6GdeE" #input("Enter your PushBullet api key: ")
+api_key     = input("Enter your PushBullet api key: ")
 intervals   = int(input("Enter the time (in seconds) between checks: "))
 
 
