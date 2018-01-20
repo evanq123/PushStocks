@@ -12,7 +12,7 @@ except ImportError:
           "https://github.com/evanq123/PushStocks \n")
     sys.exit(1)
 
-use_crypto = True # Default
+use_crypto = True # Default, another hackish method to improve later.
 answer = input("Type 's' for stock mode, else 'c' for crypto")
 if answer is 's':
     use_crypto = False
