@@ -5,9 +5,9 @@
 **PushStocks** is a mobile notification python script developed by Evan Quach that uses PushBullet to send a message when a stock's quote has met a specified price. *This is a self-hosted script*
 
 # Requirements:
-* Python3
-* BeautifulSoup4(bs4)
-* PushBullet
+* [Python3](https://www.python.org)
+* [BeautifulSoup4](beautifulsoup4 download)
+* [PushBullet](https://www.pushbullet.com)
 
 # TODO:
 * Create a .cfg to specify an array of symbols in a /data/ dir.
@@ -17,4 +17,5 @@
 * Create an installer.
 
 # Installation:
-(Work in Progress).
+* Install Python3
+* 

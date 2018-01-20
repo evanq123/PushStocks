@@ -17,7 +17,7 @@ except ImportError:
 api_key     = input("Enter your PushBullet api key: ")
 symbol      = input("Enter the symbol: ")
 threshold   = input("Enter the amount in USD to start notifying: ")
-intervals   = input("Enter the time intervals (s) between checks: ")
+intervals   = int(input("Enter the time intervals (s) between checks: "))
 
 
 def get_quote(symbol):
@@ -29,7 +29,8 @@ def get_quote(symbol):
 
 
 def push_message(msg, symbol):
-    pb.push_note("PushStocks: The quote for {} have changed!".format(symbol), msg)
+    pb = PushBullet(api_key)
+    pb.push_note("PushStocks: The quote for {} has changed!".format(symbol), msg)
 
 
 def send_message():
@@ -43,6 +44,6 @@ while True:
     if send_message():
         msg = ("Price for {} went up to {} (threshold = {})\n"
                "".format(symbol, get_quote(symbol), threshold))
-        print("Sending messgae to PushBullet...\n")
+        print("Sending message to PushBullet...\n")
         push_message(msg, symbol)
     time.sleep(intervals)
