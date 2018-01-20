@@ -18,7 +18,7 @@ answer = input("Type 's' for stock mode, else 'c' for crypto: ")
 if answer is 's':
     use_crypto = False
 
-api_key         = 'o.6JcqN9i21ocdkT8RBRlVs8yhMDNSKlmu' # input("Enter your PushBullet api key: ")
+api_key         = input("Enter your PushBullet api key: ")
 if use_crypto:
     currency    = input("Enter the currency(full name): ").upper()
     threshold   = float(input("Enter the amount in BTC to start notifying: "))
