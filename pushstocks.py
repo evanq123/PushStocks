@@ -69,7 +69,7 @@ while True:
     date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     if price_past_threshold() and message_sent is False:
         if use_crypto is True:
-            msg = ("As of, {} EST, the rate for {} is >= {} BTC (at {} BTC)"
+            msg = ("As of, {} EST, the rate for {} is >= {} BTC (at {})"
                    "".format(date, currency, threshold, get_rate(currency)))
         else:
             msg = ("As of, {} EST, the quote for {} is >= {} USD (at {} USD)"
