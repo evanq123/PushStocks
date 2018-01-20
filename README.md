@@ -7,7 +7,7 @@ Now with cryptocurrency as well!.
 
 # Requirements:
 * [Python3](https://www.python.org)
-* [BeautifulSoup4](beautifulsoup4 download)
+* [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/)
 * [PushBullet](https://www.pushbullet.com)
 
 # TODO:
