@@ -36,7 +36,7 @@ def push_message(msg, symbol):
 message_sent = False # Hackish workaround for now.
 def price_past_threshold():
     non_decimal = re.compile(r'[^\d.]+')
-    quote = non_decimal.sub('', get_quote(symbol))
+    quote = non_decimal.sub('', get_quote(currency))
     if float(quote) >= float(threshold):
         return True
 
