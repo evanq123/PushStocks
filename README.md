@@ -1,4 +1,4 @@
-# PushStocks & PushCrypto v2.1
+# PushStocks v2.0 & PushCrypto v2.1
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
@@ -17,7 +17,7 @@ Now with cryptocurrency as well!.
 * Create an installer.
 * Update readme for pushcrypto.py
 * Create a requirements.txt
-* Use different for get_rate (i.e., https://www.binance.com/tradeDetail.html?symbol=XLM_BTC or https://www.gdax.com/trade/BTC-USD)
+* Use different for get_rate (i.e., [Binance](https://www.binance.com/tradeDetail.html?symbol=XLM_BTC) or [gdax](https://www.gdax.com/trade/BTC-USD)
 
 # Installation:
 1) Install Python3 (Check the box for **add to os environmental variable** for Windows)
