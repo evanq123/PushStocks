@@ -53,6 +53,7 @@ while True:
     if not price_past_threshold() and message_sent is True:
         msg = ("As of, {} EST, the rate for {} is < {} BTC (at {} BTC)"
                "".format(date, currency, threshold, get_quote(currency)))
+        print("Sending message to PushBullet...\n")
         push_message(msg, currency)
         message_sent = False
 

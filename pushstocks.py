@@ -44,15 +44,16 @@ def price_past_threshold():
 while True:
     date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     if price_past_threshold() and message_sent is False:
-        msg = ("As of, {} EST, the price for {} is >= {} USD (at {} USD)"
+        msg = ("As of, {} EST, the quote for {} is >= {} USD (at {} USD)"
                "".format(date, symbol, threshold, get_quote(symbol).strip('\n')))
         print("Sending message to PushBullet...\n")
         push_message(msg, symbol)
         message_sent = True
 
     if not price_past_threshold() and message_sent is True:
-        msg = ("As of, {} EST, the price for {} is < {} USD (at {} USD)"
+        msg = ("As of, {} EST, the quote for {} is < {} USD (at {} USD)"
                "".format(date, symbol, threshold, get_quote(symbol)))
+        print("Sending message to PushBullet...\n")
         push_message(msg, symbol)
         message_sent = False
 
