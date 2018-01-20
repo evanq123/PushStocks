@@ -1,4 +1,4 @@
-# PushStocks v0.1a
+# PushStocks v2
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
@@ -10,11 +10,10 @@
 * [PushBullet](https://www.pushbullet.com)
 
 # TODO:
-* Create a .cfg to specify an array of symbols in a /data/ dir.
-* Create a .cfg to specify a threshold (min. price) in a /data/ dir.
 * Send messages for fatal errors and close prices.
 * Pause or resume the script at market close/open times.
 * Create an installer.
+* Update readme for pushcrypto.py
 
 # Installation:
 1) Install Python3 (Check **add to os environmental variable** for Windows)
