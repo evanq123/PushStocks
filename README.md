@@ -1,4 +1,4 @@
-# PushStocks & PushCrypto v1.0 release
+# PushStocks & PushCrypto v2.0 alpha
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
