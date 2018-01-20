@@ -22,4 +22,5 @@
 3) Type `pip install pushbullet.py` in the command window.
 4) Download/clone this repo to a directory.
 5) Change directories using `cd` and type `python3 pushstocks.py` into the command window.
+
 *Optional* Clone this repo using git to keep it updated.
