@@ -17,7 +17,7 @@ Now with cryptocurrency as well!.
 * Create an installer.
 * Update readme for pushcrypto.py
 * Create a requirements.txt
-* Use different for get_rate (i.e., [Binance](https://www.binance.com/tradeDetail.html?symbol=XLM_BTC) or [gdax](https://www.gdax.com/trade/BTC-USD))
+* Use different url source for get_rate (i.e., [Binance](https://www.binance.com/tradeDetail.html?symbol=XLM_BTC) or [gdax](https://www.gdax.com/trade/BTC-USD))
 * Combine the two python scripts.
 * Add more exception catching and re-organize duplicate codes.
 
