@@ -1,9 +1,9 @@
-# PushStocks & PushCrypto v2.0 alpha
+# PushStocks v2.0 release
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 **PushStocks** is a mobile notification python script developed by Evan Quach that uses PushBullet to send a message when a stock's quote has met a specified price. *This is a self-hosted script*
-Now with cryptocurrency as well!.
+Now with cryptocurrency as well.
 
 # Requirements:
 * [Python3](https://www.python.org)
@@ -18,7 +18,6 @@ Now with cryptocurrency as well!.
 * Update readme for pushcrypto.py
 * Create a requirements.txt
 * Use different url source for get_rate (i.e., [Binance](https://www.binance.com/tradeDetail.html?symbol=XLM_BTC) or [gdax](https://www.gdax.com/trade/BTC-USD))
-* Combine the two python scripts.
 * Add more exception catching and re-organize duplicate codes.
 
 # Installation:

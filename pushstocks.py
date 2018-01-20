@@ -2,6 +2,7 @@ import sys
 sys.path.insert(0, "lib")
 import time
 from datetime import datetime
+import re
 from urllib.request import urlopen
 
 try:
@@ -13,11 +14,11 @@ except ImportError:
     sys.exit(1)
 
 use_crypto = True # Default, another hackish method to improve later.
-answer = input("Type 's' for stock mode, else 'c' for crypto")
+answer = input("Type 's' for stock mode, else 'c' for crypto: ")
 if answer is 's':
     use_crypto = False
 
-api_key         = input("Enter your PushBullet api key: ")
+api_key         = 'o.6JcqN9i21ocdkT8RBRlVs8yhMDNSKlmu' # input("Enter your PushBullet api key: ")
 if use_crypto:
     currency    = input("Enter the currency(full name): ").upper()
     threshold   = float(input("Enter the amount in BTC to start notifying: "))
@@ -54,37 +55,36 @@ def push_message(msg):
 message_sent = False # Hackish workaround for now.
 def price_past_threshold():
     non_decimal = re.compile(r'[^\d.]+')
-    quote = non_decimal.sub('', get_quote(currency))
+    if use_crypto:
+        quote = non_decimal.sub('', get_rate(currency))
+    else:
+        quote = non_decimal.sub('', get_quote(symbol))
     if float(quote) >= float(threshold):
         return True
 
 
 while True:
-    date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     if price_past_threshold() and message_sent is False:
         if use_crypto:
             msg = ("As of, {} EST, the rate for {} is >= {} BTC (at {} BTC)"
-                   "".format(date, currency, threshold, get_quote(currency)))
-            print("Sending message to PushBullet...\n")
-            push_message(msg, currency)
+                   "".format(date, currency, threshold, get_rate(currency)))
         else:
             msg = ("As of, {} EST, the quote for {} is >= {} USD (at {} USD)"
                    "".format(date, symbol, threshold, get_quote(symbol).strip('\n')))
-            print("Sending message to PushBullet...\n")
-            push_message(msg, symbol)
+        print("Sending message to PushBullet...\n")
+        push_message(msg)
         message_sent = True
 
     if not price_past_threshold() and message_sent is True:
         if use_crypto:
             msg = ("As of, {} EST, the rate for {} is < {} BTC (at {} BTC)"
-                   "".format(date, currency, threshold, get_quote(currency)))
-            print("Sending message to PushBullet...\n")
-            push_message(msg, currency)
+                   "".format(date, currency, threshold, get_rate(currency)))
         else:
             msg = ("As of, {} EST, the quote for {} is < {} USD (at {} USD)"
                    "".format(date, symbol, threshold, get_quote(symbol)))
-            print("Sending message to PushBullet...\n")
-            push_message(msg, symbol)
+        print("Sending message to PushBullet...\n")
+        push_message(msg, symbol)
         message_sent = False
 
     time.sleep(intervals)
