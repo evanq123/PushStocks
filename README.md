@@ -2,8 +2,7 @@
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-**PushStocks** is a mobile notification python script developed by Evan Quach that uses PushBullet to send a message when a stock's quote has met a specified price. *This is a self-hosted script*
-Now with cryptocurrency as well!.
+**PushStocks** is a mobile notification python script developed by Evan Quach that uses PushBullet to send a message when a stock's quote has met a specified price. *This is a self-hosted script.* Now with cryptocurrency as well!.
 
 # Requirements:
 * [Python3](https://www.python.org)
