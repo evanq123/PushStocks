@@ -12,6 +12,11 @@ except ImportError:
           "https://github.com/evanq123/PushStocks \n")
     sys.exit(1)
 
+use_crypto = True # Default
+answer = input("Type 's' for stock mode, else 'c' for crypto")
+if answer is 's':
+    use_crypto = False
+
 api_key         = input("Enter your PushBullet api key: ")
 if use_crypto:
     currency    = input("Enter the currency(full name): ").upper()
@@ -19,7 +24,6 @@ if use_crypto:
 else:
     symbol      = input("Enter the symbol: ").upper()
     threshold   = float(input("Enter the amount in USD to start notifying: "))
-
 intervals       = int(input("Enter the time intervals (s) between checks: "))
 
 def get_rate(currency): #This works, but is very slow
